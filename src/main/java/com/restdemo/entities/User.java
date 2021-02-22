@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="users")
@@ -16,6 +17,7 @@ public class User {
 	@Column(name = "user_id")
 	private Long id;
 	
+	@NotBlank
 	@Column(name= "user_name")
 	private String name;
 	
@@ -35,6 +37,11 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + "]";
 	}
 	
 }
